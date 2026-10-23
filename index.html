@@ -93,6 +93,7 @@
     .guide-label{position:absolute;right:114px;bottom:24px;pointer-events:none;white-space:nowrap;color:var(--accent-ink);font-weight:800;font-size:10px;padding:6px 11px;border-radius:30px;background:var(--accent);box-shadow:0 3px 19px rgba(0,0,0,.1);opacity:0;transform:translateX(5px);transition:opacity .23s,transform .23s}
     .portfolio-guide.guide-hidden{width:97px}
     .guide-hidden .guide-bubble,.guide-docked .guide-bubble{position:absolute;right:0;bottom:98px;visibility:hidden;opacity:0;transform:translateY(12px) scale(.94);pointer-events:none}
+    .guide-hidden:not(.guide-docked){width:97px}
     .guide-hidden .guide-character{width:97px;height:108px;margin-right:3px}
     .guide-hidden .guide-label{opacity:1;transform:translateX(0);right:98px;bottom:16px}
     .portfolio-guide.guide-docked{width:74px;transform:translateZ(0)}
@@ -123,7 +124,7 @@
     @keyframes robotExplainLeft{0%{transform:rotate(5deg)}38%{transform:rotate(35deg)}65%{transform:rotate(16deg)}100%{transform:rotate(28deg)}}
     @keyframes robotExplainRight{0%{transform:rotate(-5deg)}38%{transform:rotate(-33deg)}65%{transform:rotate(-12deg)}100%{transform:rotate(-27deg)}}
     @keyframes guidePulse{from{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 12%,transparent)}to{box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 23%,transparent)}}
-    @media(max-width:760px){.portfolio-guide{width:min(305px,calc(100vw - 14px))}.portfolio-guide.guide-docked{width:70px}.portfolio-guide.guide-hidden{width:70px}.guide-bubble{padding:12px 13px}.guide-copy{font-size:12px}.guide-heading{font-size:9px}.guide-character{height:124px;width:113px;margin-right:4px}.guide-hidden .guide-character{width:70px;height:82px}.guide-docked .guide-character{width:65px;height:78px}.guide-docked.dock-right .guide-character{transform:translateX(18px)}.guide-docked.dock-left .guide-character{transform:translateX(-18px)}.guide-hidden .guide-label{right:75px;bottom:11px}.guide-action{padding:7px 8px}.guide-shut{width:24px;height:24px}}
+    @media(max-width:760px){.portfolio-guide{width:min(305px,calc(100vw - 14px))}.portfolio-guide.guide-docked{width:70px}.portfolio-guide.guide-hidden{width:70px}.guide-bubble{padding:12px 13px}.guide-copy{font-size:12px}.guide-heading{font-size:9px}.guide-character{height:124px;width:113px;margin-right:4px}.guide-hidden:not(.guide-docked){width:70px}.guide-hidden .guide-character{width:70px;height:82px}.guide-docked .guide-character{width:65px;height:78px}.guide-docked.dock-right .guide-character{transform:translateX(18px)}.guide-docked.dock-left .guide-character{transform:translateX(-18px)}.guide-hidden .guide-label{right:75px;bottom:11px}.guide-action{padding:7px 8px}.guide-shut{width:24px;height:24px}}
     @media(prefers-reduced-motion:reduce){.portfolio-guide,.guide-character,.robot-head-rig,.robot-pupil,.guide-bubble{transition:none!important}.robot *, .robot{animation:none!important}.guide-bubble{animation:none!important}}
     @media print{.portfolio-guide{display:none!important}}
   </style>
