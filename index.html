@@ -87,6 +87,10 @@
     .guide-docked .guide-avatar:hover,.guide-docked .guide-avatar:focus-visible{transform:translateX(0)}
     .guide-label{pointer-events:none;position:absolute;right:112px;bottom:30px;white-space:nowrap;color:var(--accent-ink);font-weight:800;font-size:11px;padding:6px 10px;border-radius:30px;background:var(--accent);box-shadow:0 4px 24px rgba(0,0,0,.15);opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s,left .2s,right .2s}
     .guide-hidden .guide-label{opacity:1;transform:translateX(0);right:73px;bottom:20px}
+    .portfolio-guide.guide-speaking .guide-heading .guide-status{animation:guideAudioPulse .85s ease-in-out infinite alternate}
+    .portfolio-guide.guide-speaking .guide-stage:before{animation:guideAudioHalo 1.7s ease-in-out infinite alternate}
+    @keyframes guideAudioPulse{from{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}to{box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 22%,transparent)}}
+    @keyframes guideAudioHalo{from{opacity:.45;filter:blur(14px)}to{opacity:.95;filter:blur(9px)}}
     .guide-off{opacity:0!important;transform:translateY(18px)!important;pointer-events:none!important}
     .guide-off .guide-avatar,.guide-off .guide-label,.guide-off .guide-bubble{display:none!important}
     @keyframes bubbleEntrance{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -192,7 +196,7 @@
     <div class="guide-bubble" id="guideBubble" role="region" aria-label="Guided portfolio tour">
       <div class="guide-heading"><span class="guide-status" aria-hidden="true"></span>Divin's portfolio guide <button class="guide-close" id="guideClose" aria-label="Close portfolio guide until page refresh" type="button">×</button></div>
       <p class="guide-copy" id="guideCopy" aria-live="polite">Welcome. I can show you around my portfolio, starting with the work behind global drug safety systems.</p>
-      <div class="guide-actions"><button type="button" class="guide-action primary" id="guideNext">Explore my story ↗</button><button type="button" class="guide-action" id="guidePause">Minimize</button></div>
+      <div class="guide-actions"><button type="button" class="guide-action primary" id="guideNext">Explore my story ↗</button><button type="button" class="guide-action" id="guideListen" aria-pressed="false" title="Read this section aloud">▶ Listen</button><button type="button" class="guide-action" id="guidePause">Minimize</button></div>
     </div>
         <button class="guide-avatar" type="button" id="guideAvatar" aria-label="Open guided portfolio tour" aria-expanded="false" aria-controls="guideBubble" title="Meet Divin's portfolio guide" data-pose="welcome">
       <span class="guide-stage" id="guideStage" aria-hidden="true">
@@ -253,6 +257,9 @@
     const next=document.querySelector('#guideNext');
     const close=document.querySelector('#guideClose');
     const pause=document.querySelector('#guidePause');
+    const listen=document.querySelector('#guideListen');
+    const speechSupported=('speechSynthesis' in window)&&('SpeechSynthesisUtterance' in window);
+    if(listen&&!speechSupported)listen.hidden=true;
     if(!guide||!avatar||!stage||!copy||!next||!close||!pause||!Object.keys(poseEls).length)return;
     const prefersStill=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const tour=[
@@ -272,6 +279,29 @@
     let scrollTick=false;
     let manualPriorityUntil=0;
     let placeTick=null;
+    let speaking=false;
+    function stopSpeaking(){
+      if(speechSupported)window.speechSynthesis.cancel();
+      speaking=false;
+      guide.classList.remove('guide-speaking');
+      if(listen){listen.textContent='▶ Listen';listen.setAttribute('aria-pressed','false');}
+    }
+    function startSpeaking(){
+      if(!speechSupported||!listen||fullyClosed)return;
+      if(speaking){stopSpeaking();return;}
+      stopSpeaking();
+      const phrase=tour[current].copy;
+      const message=new SpeechSynthesisUtterance(phrase);
+      message.lang='en-IN';message.rate=.93;message.pitch=1;message.volume=.82;
+      const v=window.speechSynthesis.getVoices().find(x=>x.lang==='en-IN') || window.speechSynthesis.getVoices().find(x=>x.lang.startsWith('en-'));
+      if(v)message.voice=v;
+      message.onend=stopSpeaking;
+      message.onerror=stopSpeaking;
+      speaking=true;
+      guide.classList.add('guide-speaking');
+      listen.textContent='■ Stop voice';listen.setAttribute('aria-pressed','true');
+      window.speechSynthesis.speak(message);
+    }
 
     function isVisible(el){
       const rect=el.getBoundingClientRect();
@@ -360,6 +390,7 @@
     }
     function setExpanded(open){
       if(fullyClosed) return;
+      if(!open)stopSpeaking();
       guide.classList.toggle('guide-hidden',!open);
       avatar.setAttribute('aria-expanded',String(open));
       schedulePlacement();
@@ -387,6 +418,7 @@
       },2100);
     }
     function update(i){
+      if(i!==current)stopSpeaking();
       current=i;
       const step=tour[i];
       copy.textContent=step.copy;
@@ -410,6 +442,8 @@
       if(i!==current) update(i);
       else schedulePlacement();
     }
+    if(listen)listen.addEventListener('click',startSpeaking);
+    window.addEventListener('pagehide',stopSpeaking);
     avatar.addEventListener('click',()=>{
       if(fullyClosed) return;
       dismissed=false;
@@ -419,12 +453,14 @@
       softGesture();
     });
     close.addEventListener('click',()=>{
+      stopSpeaking();
       fullyClosed=true;
       clearInterval(sceneTimer);
       guide.classList.add('guide-off');
       guide.classList.remove('guide-hidden','guide-docked');
     });
     pause.addEventListener('click',()=>{
+      stopSpeaking();
       dismissed=true;
       setExpanded(false);
     });
