@@ -8,6 +8,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Divinkumar Sundaramoorthi | PV Systems Portfolio" />
   <meta property="og:description" content="Supporting safety-critical pharmacovigilance platforms through technical expertise, system validation, and operational excellence." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/127290891?v=4" />
   <title>Divinkumar Sundaramoorthi | PV Systems Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -33,6 +34,26 @@
     .contact-section{padding:100px 0 60px;border-top:1px solid var(--line)}.contact-box{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--surface);border-radius:25px;padding:70px 7%;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.contact-box:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-155px;top:-195px;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);box-shadow:0 0 0 55px color-mix(in srgb,var(--accent) 5%,transparent),0 0 0 56px var(--line),0 0 0 110px color-mix(in srgb,var(--accent) 2%,transparent)}.contact-box h2{font-size:clamp(37px,5vw,63px);margin:18px 0}.contact-box p{max-width:550px;color:var(--muted);margin:0}.contact-actions{position:relative;display:flex;flex-direction:column;gap:12px}.contact-actions a,.contact-actions button{min-width:180px}.footer{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;padding:45px 0 10px;color:var(--subtle);font-size:12px}.footer-links{display:flex;gap:21px}.footer a:hover{color:var(--accent)}.footer .name{font-weight:800;color:var(--text)}
     /* Utilities */
     .progress{position:fixed;height:2px;top:0;left:0;width:0;background:var(--accent);z-index:100;pointer-events:none}.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:var(--accent);color:var(--accent-ink);padding:11px 18px;font-size:13px;font-weight:800;border-radius:12px;z-index:90;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+    /* Personal portrait and calm, accessible motion */
+    .radial-art{animation:portraitHover 9s ease-in-out infinite}
+    .radial-art:before{animation:orbitSpin 32s linear infinite}
+    .radial-art:after{animation:orbitSpin 28s linear infinite reverse}
+    .radial-art .portrait-core{inset:20%;padding:7px;overflow:hidden;border:2px solid color-mix(in srgb,var(--accent) 60%,transparent);background:var(--surface);box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 5%,transparent),0 0 56px color-mix(in srgb,var(--accent) 21%,transparent)}
+    .portrait-frame{position:relative;display:block;width:100%;height:100%;overflow:hidden;border-radius:50%;background:linear-gradient(140deg,var(--surface-2),var(--orb))}
+    .portrait-frame:after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 26px rgba(9,14,23,.13)}
+    .portrait-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.65,.25,1)}
+    .visual:hover .portrait-img{transform:scale(1.08)}
+    .orbit-dot{animation:signalGlow 3s ease-in-out infinite}
+    .orbit-dot.second{animation-delay:1.4s}
+    .float-card.top{animation:cardDrift 6s ease-in-out infinite}
+    .float-card.bottom{animation:cardDrift 7s ease-in-out infinite reverse}
+    @keyframes portraitHover{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    @keyframes orbitSpin{to{transform:rotate(360deg)}}
+    @keyframes cardDrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    @keyframes signalGlow{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 6%,transparent)}50%{box-shadow:0 0 0 11px color-mix(in srgb,var(--accent) 5%,transparent)}}
+    @media(prefers-reduced-motion:reduce){.radial-art,.radial-art:before,.radial-art:after,.orbit-dot,.float-card{animation:none!important}.portrait-img{transition:none!important}.visual:hover .portrait-img{transform:none!important}}
+    @media print{.radial-art,.radial-art:before,.radial-art:after,.orbit-dot,.float-card{animation:none!important}}
     @media(max-width:1030px){.hero-grid{gap:25px}.float-card.top{right:0}.float-card.bottom{left:0}.about-grid{gap:45px}.visual{min-height:430px}.radial-art{width:320px}.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-meta{gap:18px}}
     @media(max-width:760px){.container{width:min(100% - 36px,var(--max))}.nav{height:68px}.nav-links{display:none;position:absolute;left:0;right:0;top:68px;padding:20px 18px 25px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:18px;align-items:start}.nav-links.open{display:flex}.hamburger{display:grid}.nav-resume{display:none}.brand-title{font-size:13px}.hero{padding:64px 0 50px}.hero-grid{grid-template-columns:1fr;gap:45px}h1{font-size:clamp(46px,10.4vw,70px)}.hero h1 .role{font-size:clamp(31px,7vw,46px)}.hero-desc{font-size:15px}.hero-meta{margin-top:37px}.visual{min-height:360px;max-width:430px;margin:auto;width:100%}.radial-art{width:265px;box-shadow:0 0 0 24px color-mix(in srgb,var(--surface) 20%,transparent),0 0 0 25px var(--line),0 0 0 48px color-mix(in srgb,var(--surface) 12%,transparent),0 0 0 49px var(--line)}.float-card{padding:14px 17px}.float-card .num{font-size:26px}.float-card.top{top:25px;right:0;min-width:145px}.float-card.bottom{bottom:28px;left:0;min-width:170px}.float-card p{font-size:10px}.tagline{display:none}.ticker-inner{align-items:flex-start;flex-direction:column;gap:12px}.ticker-items{justify-content:flex-start;gap:10px 18px}.ticker-items span{font-size:12px}.section{padding:77px 0}.section-head{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:28px}.section-head .intro{font-size:14px}.about-grid,.experience-grid,.edu-layout{grid-template-columns:1fr;gap:32px}.about-title{margin-top:11px}.about-copy p{font-size:15px}.experience-grid{gap:20px}.timeline{margin-left:8px;padding-left:25px}.job:before{left:-33px}.skill-grid{grid-template-columns:1fr}.skill-card{min-height:unset;padding:25px}.work-grid{grid-template-columns:1fr}.work-card{min-height:290px}.contact-section{padding:75px 0 25px}.contact-box{grid-template-columns:1fr;padding:40px 27px}.contact-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap}.contact-actions a,.contact-actions button{min-width:unset}.edu-card,.edu-side{padding:28px}.footer{padding:30px 0 12px}}
     @media(max-width:410px){.brand-sub{font-size:9px}.brand-mark{height:36px;width:36px}.nav-actions{gap:6px}.icon-btn{width:38px;height:38px}.hero-meta{flex-direction:column;gap:14px}.about-features{grid-template-columns:1fr}.visual{min-height:310px}.radial-art{width:215px}.float-card.top{top:10px}.float-card.bottom{bottom:8px}.btn-row .btn{width:100%}.contact-actions{flex-direction:column}}
@@ -77,8 +98,8 @@
             <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/></svg><span>InfoBeans <span aria-hidden="true">•</span> IQVIA engagement</span></div>
           </div>
         </div>
-        <div class="visual" role="img" aria-label="Abstract concentric illustration of connected PV systems with labels for experience and core expertise">
-          <div class="radial-art" aria-hidden="true"><span class="orbit-dot"></span><span class="orbit-dot second"></span><span class="core"><svg viewBox="0 0 64 64"><path d="M7 34h12l8-15 11 28 7-13h12"/><circle cx="32" cy="32" r="27"/></svg></span></div>
+        <div class="visual" aria-label="Portrait of Divinkumar surrounded by softly animated circular elements">
+          <div class="radial-art" aria-hidden="true"><span class="orbit-dot"></span><span class="orbit-dot second"></span><span class="core portrait-core"><span class="portrait-frame"><img class="portrait-img" src="https://avatars.githubusercontent.com/u/127290891?v=4" alt="Divinkumar’s GitHub profile avatar" fetchpriority="high" decoding="async"></span></span></div>
           <div class="float-card top"><div class="micro">Experience</div><div class="num">3+ <span class="accent" style="font-size:18px">years</span></div><p>Pharmacovigilance systems</p></div>
           <div class="float-card bottom"><div class="micro">Core focus</div><div class="num" style="font-size:21px;margin-top:7px">Safety. Systems.<br><span class="accent">Compliance.</span></div><p>End-to-end operational support</p></div>
           <span class="tagline">Technical precision / Human impact</span>
