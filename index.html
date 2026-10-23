@@ -48,8 +48,8 @@
     .radial-art{animation:portraitFloat 8s ease-in-out infinite}
     @keyframes portraitFloat{50%{transform:translateY(-8px)}}
     /* Interactive portfolio companion, deliberately secondary to the content */
-    .portfolio-guide{position:fixed;right:clamp(10px,2.3vw,36px);bottom:12px;z-index:55;width:min(345px,calc(100vw - 24px));display:flex;flex-direction:column;align-items:flex-end;pointer-events:none;filter:drop-shadow(0 18px 32px rgba(0,0,0,.14))}
-    .guide-bubble{pointer-events:auto;width:100%;margin-bottom:-7px;padding:18px 18px 16px;background:color-mix(in srgb,var(--surface) 97%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:18px 18px 7px 18px;box-shadow:0 18px 52px rgba(0,0,0,.3);backdrop-filter:blur(18px);transform-origin:bottom right;animation:bubbleEntrance .45s cubic-bezier(.18,.8,.3,1) both}
+    .portfolio-guide{position:fixed;left:var(--guide-x,calc(100vw - 360px));bottom:var(--guide-y,12px);z-index:55;width:min(345px,calc(100vw - 24px));display:flex;flex-direction:column;align-items:flex-end;pointer-events:none;filter:drop-shadow(0 18px 32px rgba(0,0,0,.14));transition:left .55s cubic-bezier(.2,.8,.2,1),bottom .55s cubic-bezier(.2,.8,.2,1),opacity .28s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+    .guide-bubble{pointer-events:auto;width:100%;margin-bottom:-7px;padding:18px 18px 16px;background:color-mix(in srgb,var(--surface) 97%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:18px 18px 7px 18px;box-shadow:0 18px 52px rgba(0,0,0,.3);backdrop-filter:blur(18px);transform-origin:bottom right;animation:bubbleEntrance .45s cubic-bezier(.18,.8,.3,1) both;transition:opacity .24s ease,transform .24s ease,visibility .24s ease}
     .guide-heading{display:flex;align-items:center;gap:7px;margin-bottom:9px;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
     .guide-heading .guide-status{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent)}
     .guide-close{margin-left:auto;width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--muted);font-size:19px;cursor:pointer}
@@ -58,11 +58,11 @@
     .guide-action{border:1px solid var(--line);background:var(--surface-2);color:var(--text);border-radius:9px;padding:8px 12px;font-size:11px;font-weight:800;cursor:pointer}
     .guide-action.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
     .guide-action:focus-visible,.guide-avatar:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-    .guide-avatar{position:relative;margin-right:17px;width:150px;height:188px;display:block;padding:0;background:transparent;border:0;cursor:pointer;pointer-events:auto;transform-origin:bottom center;overflow:visible}
-    .guide-avatar:before{content:"";position:absolute;left:10%;right:10%;bottom:5px;height:18px;border-radius:50%;background:rgba(0,0,0,.25);filter:blur(10px)}
-    .guide-stage{position:relative;display:block;width:100%;height:100%;isolation:isolate}
-    .guide-stage:before{content:"";position:absolute;inset:auto 22% 12px 22%;height:76%;border-radius:999px;background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 64%);filter:blur(14px);opacity:.9;pointer-events:none}
-    .guide-stage:after{content:"";position:absolute;inset:12px 18px 20px;border-radius:30px;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 10%,transparent),transparent 52%);border:1px solid color-mix(in srgb,var(--line) 55%,transparent);opacity:.42;pointer-events:none}
+    .guide-avatar{position:relative;margin-right:17px;width:150px;height:188px;display:block;padding:0;background:transparent;border:0;cursor:pointer;pointer-events:auto;transform-origin:bottom center;overflow:visible;transition:transform .24s ease,width .25s ease,height .25s ease,margin .25s ease}
+    .guide-avatar:before{content:"";position:absolute;left:10%;right:10%;bottom:5px;height:18px;border-radius:50%;background:rgba(0,0,0,.25);filter:blur(10px);transition:opacity .24s ease}
+    .guide-stage{position:relative;display:block;width:100%;height:100%;isolation:isolate;transform:translate3d(var(--look-x,0px),var(--look-y,0px),0) rotate(var(--look-rot,0deg));transition:transform .16s linear}
+    .guide-stage:before{content:"";position:absolute;inset:auto 22% 12px 22%;height:76%;border-radius:999px;background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 64%);filter:blur(14px);opacity:.9;pointer-events:none;transition:opacity .24s ease}
+    .guide-stage:after{content:"";position:absolute;inset:12px 18px 20px;border-radius:30px;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 10%,transparent),transparent 52%);border:1px solid color-mix(in srgb,var(--line) 55%,transparent);opacity:.42;pointer-events:none;transition:opacity .24s ease}
     .guide-pose{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:bottom center;opacity:0;transform:translateY(8px) scale(.985);filter:drop-shadow(0 9px 14px rgba(0,0,0,.16));transition:opacity .42s cubic-bezier(.2,.75,.25,1),transform .42s cubic-bezier(.2,.75,.25,1)}
     .guide-pose.active{opacity:1;transform:translateY(0) scale(1)}
     .guide-avatar:hover .guide-pose.active{transform:translateY(-2px) scale(1.02)}
@@ -71,30 +71,32 @@
     .guide-avatar[data-pose="present"] .guide-pose.active{animation:poseReveal .54s cubic-bezier(.2,.85,.25,1) both, presentCue 1.1s ease-out both}
     .guide-avatar[data-pose="point"] .guide-pose.active{animation:poseReveal .54s cubic-bezier(.2,.85,.25,1) both, pointCue 1.08s ease-out both}
     .guide-avatar[data-pose="explain"] .guide-pose.active{animation:poseReveal .54s cubic-bezier(.2,.85,.25,1) both, explainCue 1.14s ease-out both}
-    .guide-hidden .guide-bubble{display:none}
-    .guide-hidden .guide-avatar{width:84px;height:108px}
+    .guide-hidden .guide-bubble,.guide-docked .guide-bubble{opacity:0;visibility:hidden;transform:translateY(12px) scale(.94);pointer-events:none;position:absolute;right:0;bottom:105px;width:min(320px,calc(100vw - 28px))}
+    .guide-hidden .guide-avatar{width:84px;height:108px;margin-right:0}
     .guide-hidden .guide-stage:after{inset:6px 10px 10px;border-radius:18px;opacity:.34}
-    .guide-label{pointer-events:none;position:absolute;right:112px;bottom:30px;white-space:nowrap;color:var(--accent-ink);font-weight:800;font-size:11px;padding:6px 10px;border-radius:30px;background:var(--accent);box-shadow:0 4px 24px rgba(0,0,0,.15);opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s}
+    .guide-docked{width:94px;transform:translateZ(0)}
+    .guide-docked .guide-avatar{width:82px;height:106px;margin-right:0}
+    .guide-docked .guide-avatar:before{opacity:.8}
+    .guide-docked .guide-stage:before{opacity:.45}
+    .guide-docked .guide-stage:after{opacity:.22;inset:6px 10px 12px;border-radius:18px}
+    .guide-docked.dock-right .guide-avatar{transform:translateX(26px)}
+    .guide-docked.dock-left .guide-avatar{transform:translateX(-26px)}
+    .guide-docked .guide-label{opacity:1;transform:translateX(0)}
+    .guide-docked.dock-right .guide-label{right:72px;bottom:16px}
+    .guide-docked.dock-left .guide-label{left:72px;right:auto;bottom:16px}
+    .guide-docked .guide-avatar:hover,.guide-docked .guide-avatar:focus-visible{transform:translateX(0)}
+    .guide-label{pointer-events:none;position:absolute;right:112px;bottom:30px;white-space:nowrap;color:var(--accent-ink);font-weight:800;font-size:11px;padding:6px 10px;border-radius:30px;background:var(--accent);box-shadow:0 4px 24px rgba(0,0,0,.15);opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s,left .2s,right .2s}
     .guide-hidden .guide-label{opacity:1;transform:translateX(0);right:73px;bottom:20px}
-    .guide-off .guide-avatar,.guide-off .guide-label{display:none}
-    .guide-off .guide-bubble{display:none}
+    .guide-off{opacity:0!important;transform:translateY(18px)!important;pointer-events:none!important}
+    .guide-off .guide-avatar,.guide-off .guide-label,.guide-off .guide-bubble{display:none!important}
     @keyframes bubbleEntrance{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
     @keyframes poseReveal{0%{opacity:.1;transform:translateY(12px) scale(.955)}100%{opacity:1;transform:translateY(0) scale(1)}}
     @keyframes welcomeCue{0%{transform:translateY(10px) scale(.96) rotate(-2.2deg)}45%{transform:translateY(-1px) scale(1.02) rotate(.9deg)}100%{transform:translateY(0) scale(1) rotate(0)}}
     @keyframes presentCue{0%{transform:translateX(-8px) translateY(6px) scale(.97)}45%{transform:translateX(3px) translateY(0) scale(1.02)}100%{transform:translateX(0) translateY(0) scale(1)}}
     @keyframes pointCue{0%{transform:translateX(-13px) scale(.97)}60%{transform:translateX(4px) scale(1.015)}100%{transform:translateX(0) scale(1)}}
     @keyframes explainCue{0%{transform:translateY(9px) scale(.97) rotate(1deg)}40%{transform:translateY(-1px) scale(1.018) rotate(-.8deg)}100%{transform:translateY(0) scale(1) rotate(0)}}
-    @media(max-width:760px){.portfolio-guide{right:7px;bottom:8px;width:min(304px,calc(100vw - 16px))}.guide-avatar{width:108px;height:138px;margin-right:5px}.guide-copy{font-size:12px}.guide-bubble{padding:13px 14px}.guide-hidden .guide-avatar{width:64px;height:84px}.guide-hidden .guide-label{right:59px;bottom:13px}.guide-avatar:before{bottom:1px}.guide-heading{font-size:9px}}
-    @media(prefers-reduced-motion:reduce){.radial-art,.guide-bubble,.guide-avatar.pose-change .guide-pose.active,.guide-avatar[data-pose] .guide-pose.active{animation:none!important}.portrait-img,.guide-pose{transition:none!important}.visual:hover .portrait-img,.guide-avatar:hover .guide-pose.active{transform:none}.guide-pose.active{opacity:1}}
-
-    /* The speech pulse is a listening-state affordance, not simulated lip sync. */
-    .guide-status{transition:box-shadow .3s}
-    .portfolio-guide.guide-speaking .guide-heading .guide-status{animation:guideAudioPulse .85s ease-in-out infinite alternate}
-    .portfolio-guide.guide-speaking .guide-stage:before{animation:guideAudioHalo 1.7s ease-in-out infinite alternate}
-    .portfolio-guide.guide-speaking .guide-avatar[data-pose="explain"] .guide-pose.active{animation:explainCue 1.3s ease-in-out both}
-    @keyframes guideAudioPulse{from{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}to{box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 7%,transparent)}}
-    @keyframes guideAudioHalo{from{opacity:.45;transform:scale(.93)}to{opacity:.95;transform:scale(1.025)}}
-    @media(prefers-reduced-motion:reduce){.portfolio-guide.guide-speaking .guide-heading .guide-status,.portfolio-guide.guide-speaking .guide-stage:before,.portfolio-guide.guide-speaking .guide-avatar[data-pose] .guide-pose.active{animation:none!important}}
+    @media(max-width:760px){.portfolio-guide{width:min(304px,calc(100vw - 16px));bottom:8px}.guide-avatar{width:108px;height:138px;margin-right:5px}.guide-copy{font-size:12px}.guide-bubble{padding:13px 14px}.guide-hidden .guide-avatar,.guide-docked .guide-avatar{width:64px;height:84px}.guide-hidden .guide-label,.guide-docked.dock-right .guide-label{right:59px;bottom:13px}.guide-docked.dock-left .guide-label{left:59px;bottom:13px}.guide-avatar:before{bottom:1px}.guide-heading{font-size:9px}.guide-docked{width:74px}.guide-docked.dock-right .guide-avatar{transform:translateX(16px)}.guide-docked.dock-left .guide-avatar{transform:translateX(-16px)}}
+    @media(prefers-reduced-motion:reduce){.radial-art,.guide-bubble,.guide-avatar.pose-change .guide-pose.active,.guide-avatar[data-pose] .guide-pose.active{animation:none!important}.portfolio-guide,.guide-avatar,.guide-stage,.guide-bubble{transition:none!important}.portrait-img,.guide-pose{transition:none!important}.visual:hover .portrait-img,.guide-avatar:hover .guide-pose.active{transform:none}.guide-pose.active{opacity:1}}
     @media print{.portfolio-guide{display:none!important}.radial-art{animation:none!important}}
   </style>
 </head>
@@ -188,9 +190,9 @@
   <!-- Divin's interactive portfolio companion: four expressive portrait poses, navigates real page sections. -->
   <aside class="portfolio-guide guide-hidden" id="portfolioGuide" aria-label="Interactive portfolio guide">
     <div class="guide-bubble" id="guideBubble" role="region" aria-label="Guided portfolio tour">
-      <div class="guide-heading"><span class="guide-status" aria-hidden="true"></span>Interactive portfolio guide <button class="guide-close" id="guideClose" aria-label="Minimize portfolio guide" type="button">×</button></div>
+      <div class="guide-heading"><span class="guide-status" aria-hidden="true"></span>Divin's portfolio guide <button class="guide-close" id="guideClose" aria-label="Close portfolio guide until page refresh" type="button">×</button></div>
       <p class="guide-copy" id="guideCopy" aria-live="polite">Welcome. I can show you around my portfolio, starting with the work behind global drug safety systems.</p>
-      <div class="guide-actions"><button type="button" class="guide-action primary" id="guideNext">Explore my story ↗</button><button type="button" class="guide-action" id="guideListen" aria-pressed="false" title="Read the current section introduction aloud">▶ Listen</button><button type="button" class="guide-action" id="guidePause">Hide guide</button></div>
+      <div class="guide-actions"><button type="button" class="guide-action primary" id="guideNext">Explore my story ↗</button><button type="button" class="guide-action" id="guidePause">Minimize</button></div>
     </div>
         <button class="guide-avatar" type="button" id="guideAvatar" aria-label="Open guided portfolio tour" aria-expanded="false" aria-controls="guideBubble" title="Meet Divin's portfolio guide" data-pose="welcome">
       <span class="guide-stage" id="guideStage" aria-hidden="true">
@@ -251,9 +253,6 @@
     const next=document.querySelector('#guideNext');
     const close=document.querySelector('#guideClose');
     const pause=document.querySelector('#guidePause');
-    const listen=document.querySelector('#guideListen');
-    const speechSupported=('speechSynthesis' in window)&&('SpeechSynthesisUtterance' in window);
-    if(listen&&!speechSupported){listen.hidden=true;}
     if(!guide||!avatar||!stage||!copy||!next||!close||!pause||!Object.keys(poseEls).length)return;
     const prefersStill=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const tour=[
@@ -264,45 +263,109 @@
       {id:'work',copy:'This section focuses on selected PV workstreams and the practical business value delivered through support and enhancement ownership.',cta:'Go to contact ↘',scene:['present','explain']},
       {id:'contact',copy:'Ready to connect? This final section makes it easy for recruiters, clients, or teams to start a professional conversation.',cta:'Back to top ↑',scene:['welcome','present']}
     ];
+    const sensitiveSelector='main h1, main h2, main h3, main p, main li, main .card, main article, main .timeline-item, main .work-card, main .skill-card, main .metric, main .pill, main .feature, main .contact-card, footer';
     let current=0;
     let dismissed=false;
+    let fullyClosed=false;
     let sceneTimer=null;
     let poseCleanup=null;
-    let speaking=false;
-    let spokenStep=-1;
-    const voices=()=>speechSupported?window.speechSynthesis.getVoices():[];
-    function stopSpeaking(){
-      if(speechSupported)window.speechSynthesis.cancel();
-      speaking=false;
-      guide.classList.remove('guide-speaking');
-      if(listen){listen.textContent='▶ Listen';listen.setAttribute('aria-pressed','false');}
-    }
-    function startSpeaking(){
-      if(!speechSupported||!listen)return;
-      if(speaking){stopSpeaking();return;}
-      stopSpeaking();
-      const message=new SpeechSynthesisUtterance(tour[current].copy);
-      message.lang='en-IN';
-      message.rate=.93;message.pitch=1;message.volume=.85;
-      const preferred=voices().find(v=>v.lang==='en-IN') || voices().find(v=>v.lang.startsWith('en-'));
-      if(preferred)message.voice=preferred;
-      message.onend=stopSpeaking;
-      message.onerror=stopSpeaking;
-      spokenStep=current;
-      speaking=true;
-      guide.classList.add('guide-speaking');
-      listen.textContent='■ Stop voice';listen.setAttribute('aria-pressed','true');
-      window.speechSynthesis.speak(message);
-    }
+    let scrollTick=false;
+    let manualPriorityUntil=0;
+    let placeTick=null;
 
+    function isVisible(el){
+      const rect=el.getBoundingClientRect();
+      const style=getComputedStyle(el);
+      return rect.width>0&&rect.height>0&&style.visibility!=='hidden'&&style.display!=='none'&&rect.bottom>0&&rect.top<window.innerHeight;
+    }
+    function overlapArea(a,b){
+      const x=Math.max(0,Math.min(a.right,b.right)-Math.max(a.left,b.left));
+      const y=Math.max(0,Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top));
+      return x*y;
+    }
+    function scoreRect(rect){
+      let score=0;
+      document.querySelectorAll(sensitiveSelector).forEach(el=>{
+        if(guide.contains(el)||!isVisible(el))return;
+        const r=el.getBoundingClientRect();
+        const area=overlapArea(rect,r);
+        if(!area)return;
+        const tag=el.tagName;
+        let weight=1;
+        if(['P','LI','H1','H2','H3'].includes(tag)) weight=1.7;
+        if(el.matches('.work-card,.timeline-item,.contact-card,.card,article')) weight=1.3;
+        score+=area*weight;
+      });
+      return score;
+    }
+    function measureDims(){
+      const expanded=!guide.classList.contains('guide-hidden') && !guide.classList.contains('guide-docked');
+      const bubble=expanded?guide.querySelector('.guide-bubble').getBoundingClientRect():{height:0,width:0};
+      const avatarRect=avatar.getBoundingClientRect();
+      return {
+        expandedW:Math.max(bubble.width||0, avatarRect.width+18),
+        expandedH:(bubble.height||0)+avatarRect.height,
+        dockW:Math.max(74, avatarRect.width*.64),
+        dockH:Math.max(96, avatarRect.height*.68)
+      };
+    }
+    function applyPosition(left,bottom){
+      guide.style.setProperty('--guide-x',`${Math.round(left)}px`);
+      guide.style.setProperty('--guide-y',`${Math.round(bottom)}px`);
+    }
+    function choosePlacement(forceOpen=false){
+      if(fullyClosed) return;
+      const viewportW=window.innerWidth;
+      const viewportH=window.innerHeight;
+      const bottom=window.innerWidth<=760?8:12;
+      const dims=measureDims();
+      const openW=Math.min(dims.expandedW, viewportW-16);
+      const openH=Math.min(dims.expandedH, viewportH-16);
+      const margin=10;
+      const openCandidates=[
+        viewportW-openW-margin,
+        viewportW*.68-openW/2,
+        viewportW*.5-openW/2,
+        viewportW*.32-openW/2,
+        margin
+      ].map(v=>Math.max(margin,Math.min(viewportW-openW-margin,v)));
+      const tested=[];
+      for(const left of openCandidates){
+        const rect={left,right:left+openW,top:viewportH-openH-bottom,bottom:viewportH-bottom};
+        tested.push({left,score:scoreRect(rect)});
+      }
+      tested.sort((a,b)=>a.score-b.score);
+      const best=tested[0];
+      const allowOpen = forceOpen || (Date.now()<manualPriorityUntil) || best.score<22000;
+      if(allowOpen){
+        guide.classList.remove('guide-docked','dock-left','dock-right');
+        applyPosition(best.left,bottom);
+      }else{
+        const dockW=Math.min(88,viewportW-8);
+        const dockH=Math.min(dims.dockH,viewportH-12);
+        const leftRect={left:6,right:6+dockW,top:viewportH-dockH-bottom,bottom:viewportH-bottom};
+        const rightRect={left:viewportW-dockW-6,right:viewportW-6,top:viewportH-dockH-bottom,bottom:viewportH-bottom};
+        const leftScore=scoreRect(leftRect);
+        const rightScore=scoreRect(rightRect);
+        const side=leftScore<=rightScore?'left':'right';
+        guide.classList.add('guide-docked');
+        guide.classList.toggle('dock-left',side==='left');
+        guide.classList.toggle('dock-right',side==='right');
+        applyPosition(side==='left'?6:viewportW-dockW-6,bottom);
+      }
+    }
+    function schedulePlacement(){
+      clearTimeout(placeTick);
+      placeTick=setTimeout(()=>choosePlacement(),40);
+    }
     function setExpanded(open){
+      if(fullyClosed) return;
       guide.classList.toggle('guide-hidden',!open);
       avatar.setAttribute('aria-expanded',String(open));
-      if(!open)stopSpeaking();
+      schedulePlacement();
     }
-
     function swapPose(name){
-      if(!poseEls[name])return;
+      if(!poseEls[name]) return;
       Object.values(poseEls).forEach(el=>el.classList.remove('active'));
       poseEls[name].classList.add('active');
       avatar.dataset.pose=name;
@@ -312,57 +375,89 @@
       clearTimeout(poseCleanup);
       poseCleanup=setTimeout(()=>avatar.classList.remove('pose-change'),650);
     }
-
     function playScene(scene){
       clearInterval(sceneTimer);
-      if(!scene||!scene.length)return;
+      if(!scene||!scene.length) return;
       let index=0;
       swapPose(scene[index]);
-      if(prefersStill||scene.length===1)return;
+      if(prefersStill||scene.length===1) return;
       sceneTimer=setInterval(()=>{
         index=(index+1)%scene.length;
         swapPose(scene[index]);
       },2100);
     }
-
     function update(i){
-      if(i!==current)stopSpeaking();
       current=i;
       const step=tour[i];
       copy.textContent=step.copy;
       next.textContent=step.cta;
       playScene(step.scene);
+      schedulePlacement();
     }
-
-    if(listen)listen.addEventListener('click',startSpeaking);
-    window.addEventListener('pagehide',stopSpeaking);
-    avatar.addEventListener('click',()=>{dismissed=false;setExpanded(guide.classList.contains('guide-hidden'));});
-    close.addEventListener('click',()=>setExpanded(false));
-    pause.addEventListener('click',()=>{dismissed=true;setExpanded(false);});
-    next.addEventListener('click',()=>{
-      const nextIndex=(current+1)%tour.length;
-      update(nextIndex);
-      const target=document.getElementById(tour[nextIndex].id);
-      if(target)target.scrollIntoView({behavior:prefersStill?'auto':'smooth',block:'start'});
-      if(dismissed){dismissed=false;setExpanded(true);}
-    });
-
-    let scrollTick=false;
-    const readSection=()=>{
+    function softGesture(){
+      const poses=['welcome','present','point','explain'];
+      const selected=poses[Math.floor(Math.random()*poses.length)];
+      swapPose(selected);
+    }
+    function readSection(){
       scrollTick=false;
       const checkpoint=Math.min(window.innerHeight*.38,245);
       let i=0;
       for(let k=0;k<tour.length;k++){
         const el=document.getElementById(tour[k].id);
-        if(el&&el.getBoundingClientRect().top<=checkpoint)i=k;
+        if(el&&el.getBoundingClientRect().top<=checkpoint) i=k;
       }
-      if(i!==current)update(i);
-    };
+      if(i!==current) update(i);
+      else schedulePlacement();
+    }
+    avatar.addEventListener('click',()=>{
+      if(fullyClosed) return;
+      dismissed=false;
+      manualPriorityUntil=Date.now()+2600;
+      if(guide.classList.contains('guide-hidden')||guide.classList.contains('guide-docked')) setExpanded(true);
+      choosePlacement(true);
+      softGesture();
+    });
+    close.addEventListener('click',()=>{
+      fullyClosed=true;
+      clearInterval(sceneTimer);
+      guide.classList.add('guide-off');
+      guide.classList.remove('guide-hidden','guide-docked');
+    });
+    pause.addEventListener('click',()=>{
+      dismissed=true;
+      setExpanded(false);
+    });
+    next.addEventListener('click',()=>{
+      const nextIndex=(current+1)%tour.length;
+      manualPriorityUntil=Date.now()+2600;
+      update(nextIndex);
+      const target=document.getElementById(tour[nextIndex].id);
+      if(target) target.scrollIntoView({behavior:prefersStill?'auto':'smooth',block:'start'});
+      if(dismissed){ dismissed=false; setExpanded(true); }
+      choosePlacement(true);
+    });
     window.addEventListener('scroll',()=>{if(!scrollTick){scrollTick=true;requestAnimationFrame(readSection);}},{passive:true});
+    window.addEventListener('resize',schedulePlacement,{passive:true});
+    window.addEventListener('mousemove',e=>{
+      const rect=avatar.getBoundingClientRect();
+      if(!rect.width||!rect.height) return;
+      const cx=rect.left+rect.width/2;
+      const cy=rect.top+rect.height*0.34;
+      const dx=(e.clientX-cx)/window.innerWidth;
+      const dy=(e.clientY-cy)/window.innerHeight;
+      const lookX=Math.max(-6,Math.min(6,dx*18));
+      const lookY=Math.max(-4,Math.min(4,dy*14));
+      const rot=Math.max(-2.5,Math.min(2.5,dx*7));
+      stage.style.setProperty('--look-x',`${lookX.toFixed(1)}px`);
+      stage.style.setProperty('--look-y',`${lookY.toFixed(1)}px`);
+      stage.style.setProperty('--look-rot',`${rot.toFixed(2)}deg`);
+    },{passive:true});
 
     update(0);
     readSection();
-    if(window.innerWidth>760){setTimeout(()=>{if(!dismissed&&window.scrollY<120)setExpanded(true)},900)}
+    choosePlacement();
+    if(window.innerWidth>760){setTimeout(()=>{if(!dismissed&&window.scrollY<120&&!fullyClosed)setExpanded(true)},900)}
   })();
   </script>
 </body>
