@@ -1,53 +1,49 @@
-# Pharmacovigilance Systems Portfolio
+# Divinkumar Sundaramoorthi | PV Systems Portfolio
 
-A responsive, interactive professional portfolio presenting verified techno-functional pharmacovigilance application support experience and representative workstreams.
+A desktop-first professional portfolio for a pharmacovigilance techno-functional analyst. The site emphasizes verified technical contributions and the work behind day-to-day PV application support.
 
-## Experience / 2026 redesign
+## Resume-led editorial redesign
 
-The public website is in [index.html](./index.html), with additional visual and interaction layers in [experience-lab.css](./experience-lab.css) and [experience-lab.js](./experience-lab.js).
+This redesign uses the user's 2025 resume as evidence for earlier professional experience and retains the confirmed, updated career chronology through 2026.
 
-The experience includes:
+The new site prioritizes:
 
-- A refined editorial design with coordinated dark and light themes
-- Responsive navigation, section reading progress and quick-jump search
-- Keyboard quick navigation using **Command/Ctrl + K**, or **/** outside an input
-- An interactive, illustrative support workflow explorer covering incidents, user access, reconciliation, and testing/change
-- Expandable explanations for the six representative workstreams
-- A one-click professional introduction and workflow-summary copy action
-- A visible reduction-of-motion toggle, plus operating-system reduced-motion support
-- Existing searchable tool explorer, workstream filters, contact actions and browser PDF output
+- A concise professional proposition rather than generic tool and animation overload
+- E2B/XML/ACK investigations, SQL-backed checks and reporting workflows
+- Dictionary update and recoding support (MedDRA, WHO-Drug and JDrug)
+- HaloPV access, workflow and reconciliation-related operational support
+- TCQ, GxP documentation and controlled change evidence
+- A truthful distinction between practiced skills and developing skills
+- A clear separation of the current InfoBeans/IQVIA assignment and earlier Capgemini responsibilities
 
-There is no external analytics service, project backend or private data source used by the interactive features. All workflow examples are generalized and read-only.
+## Files
 
-## Desktop Studio refinement (November 2026)
+- `index.html`: semantic sections, public-safe content and embedded existing portrait
+- `portfolio-next.css`: responsive editorial design, themes, and accessible motion preferences
+- `portfolio-next.js`: navigation, workstream filters, expandable descriptions, expertise explorer, copy/email and print controls
 
-The desktop-only layer lives in [desktop-studio.css](./desktop-studio.css) and [desktop-studio.js](./desktop-studio.js). It is enabled at viewport widths of **1100px or more** and intentionally leaves the existing phone layout unchanged.
+Older site files remain in git history for rollback. The new `index.html` does not load their styles or scripts.
 
-- Editorial hero composition with richer typography, subtle portrait depth and more deliberate spacing
-- Three interactive professional focus lenses: PV operations, investigation, and quality/change
-- Section navigation rail on wide desktop screens, with active-section feedback and accessible labels
-- Discipline shortcuts that apply the existing workstream filters
-- A more curated two-column workstream gallery with responsive pointer spotlight and expandable descriptions
-- Larger career timeline and expertise presentation, plus a desktop workflow explorer with side navigation
-- Motion respects both the on-page motion toggle and the operating-system reduced-motion setting
+## Interaction and accessibility
 
-The enhancement remains static and read-only. No client data, case records, ticket exports, user tracking, or proprietary operational examples are added. Existing themes, search, PDF printing and mobile interactions are preserved.
+The site offers an interactive expertise explorer with arrow-key navigation; filtered representative workstreams; expandable practice descriptions; dark and light themes; a reduced-motion control; keyboard command navigation (Cmd/Ctrl+K or /); and browser printing.
 
-## Professional focus
+Animation is optional, uses mostly transform/opacity transitions and respects `prefers-reduced-motion`. No backend, visitor analytics or dynamic organizational data access is implemented.
 
-- Enterprise PV application support and IT service management
-- User access and role-related request coordination
-- Workflow administration and reconciliation-related operational support
-- Incident investigation, stakeholder follow-ups and technical documentation
-- SQL/PL-SQL troubleshooting, controlled changes, UAT and validation support
-- Previous experience with drug safety platforms, regulatory data exchange and GxP-aligned delivery
+## Confidentiality and fact-checking
 
-## Privacy and scope
+The public site must never contain patient or case records, private ticket exports, internal IDs, credentials, business configurations, stakeholder messages, or internal links.
 
-Descriptions are intentionally high-level. Never commit patient information, ICSR records, internal ticket exports, confidential system configurations, internal links, credentials, or nonpublic client documentation. The workstreams are representative areas of experience, not disclosures of specific client issues or deliverables.
+The 2025 resume describes Capgemini as present at that time; the website uses the later confirmed employment transition: Capgemini through January 6, 2026 and InfoBeans from January 7, 2026. No fabricated outcomes, metrics, certifications, or AI automation deployments are presented.
 
-## Maintenance and accessibility
+## Release checklist
 
-This is a dependency-free static HTML/CSS/JS website. Preserve semantic buttons, keyboard navigation, responsive layouts, motion preferences, and the existing PDF print functionality. Do not publish confidential project metrics or unverified performance claims.
+Before promoting a preview:
+1. Verify desktop at 1280, 1440 and 1920 pixels, including portrait and long-title layouts.
+2. Test workstream filter counts and expandable details.
+3. Test expertise tabs by mouse and arrow keys.
+4. Test theme, motion, command palette, navigation, and printable profile.
+5. Check keyboard focus, text contrast and reduced-motion behavior.
+6. Ensure no private ticket/case content or misleading proficiency claims are present.
 
-For a public release, check navigation, search, workflow tabs, theme and motion toggles, contact links, mobile layouts and the browser print layout.
+If full browser automation is unavailable, be explicit that source checks and Vercel deployment status are not equivalent to end-to-end browser QA.
