@@ -24,7 +24,14 @@
    const theme=value==='light'?'light':'dark';
    root.dataset.theme=theme;
    const btn=$('#themeToggle');
-   if(btn){btn.setAttribute('aria-label',theme==='dark'?'Switch to light theme':'Switch to dark theme');btn.title=btn.getAttribute('aria-label')}
+   if(btn){
+     btn.setAttribute('aria-label',theme==='dark'?'Switch to light theme':'Switch to dark theme');
+     btn.title=btn.getAttribute('aria-label');
+     const graphic=$('svg',btn);
+     if(graphic)graphic.innerHTML=theme==='dark'
+       ? '<path d="M20.5 15A9 9 0 0 1 9 3.5 9 9 0 1 0 20.5 15Z"/>'
+       : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>';
+   }
  }
  setTheme(storage.get('pv-studio-theme')==='light'?'light':'dark');
  $('#themeToggle')?.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';setTheme(next);storage.set('pv-studio-theme',next)});
@@ -59,7 +66,8 @@
  window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(reading)}},{passive:true});
  window.addEventListener('resize',reading,{passive:true});
  reading();
- // Reveal only once; keep content visible when observers unsupported.
+ // Reveal only once, with a fully readable no-JavaScript fallback.
+ root.classList.add('js-enabled');
  if('IntersectionObserver' in window){
    const observer=new IntersectionObserver(entries=>{
      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}})
