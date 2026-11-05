@@ -110,7 +110,8 @@
   .work-card:first-child{background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 8%,var(--surface)),var(--surface))}
   .work-card::after {content:"";z-index:0;position:absolute;inset:0;opacity:0;pointer-events:none;background:radial-gradient(360px circle at var(--spotlight-x,50%) var(--spotlight-y,50%),color-mix(in srgb,var(--accent) 10%,transparent),transparent 73%);transition:opacity .2s}
   .work-card:hover::after,.work-card:focus-within::after{opacity:1}
-  .work-card>*{position:relative;z-index:1}
+  .work-card>*:not(.work-icon){position:relative;z-index:1}
+  .work-card>.work-icon{position:absolute;z-index:1}
   .work-card::before{z-index:0}
   .work-card h3{max-width:490px;font-size:clamp(25px,2.45vw,37px);margin:45px 0 16px;letter-spacing:-.065em;line-height:1.19}
   .work-card p{font-size:14px;max-width:640px;line-height:1.86}
