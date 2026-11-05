@@ -25,6 +25,12 @@ The new site prioritizes:
 - Maintained reduced-motion support, dark/light themes, keyboard navigation and browser printing.
 - Public content remains generalized and evidence-backed, with no patient records or internal ticket details.
 
+## Cloudflare Pages hosting
+
+A deployment-ready, minimal static output builder is provided in `cloudflare-pages-build.sh`. Use `sh cloudflare-pages-build.sh` as the Pages build command and `dist` as the output directory. Read [CLOUDFLARE_PAGES.md](./CLOUDFLARE_PAGES.md) for the one-time GitHub authorization and branch settings.
+
+The live Cloudflare URL will be assigned by Cloudflare after account authorization and successful deployment.
+
 ## Files
 
 - `index.html`: semantic sections, public-safe content and embedded existing portrait
