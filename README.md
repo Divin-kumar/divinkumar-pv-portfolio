@@ -16,11 +16,21 @@ The new site prioritizes:
 - A truthful distinction between practiced skills and developing skills
 - A clear separation of the current InfoBeans/IQVIA assignment and earlier Capgemini responsibilities
 
+## Latest refinement
+
+- Removed Power BI from the public skills section at the user's request.
+- Added instant keyword search across representative work areas, combining with existing category filters.
+- Added contextual links from interactive platform expertise to the most relevant workstream category.
+- Refined desktop spacing, hierarchy, portrait framing, card surfaces and hover feedback.
+- Maintained reduced-motion support, dark/light themes, keyboard navigation and browser printing.
+- Public content remains generalized and evidence-backed, with no patient records or internal ticket details.
+
 ## Files
 
 - `index.html`: semantic sections, public-safe content and embedded existing portrait
 - `portfolio-next.css`: responsive editorial design, themes, and accessible motion preferences
 - `portfolio-next.js`: navigation, workstream filters, expandable descriptions, expertise explorer, copy/email and print controls
+- `portfolio-polish.css` and `portfolio-polish.js`: desktop visual refinement, keyword search and contextual experience navigation
 
 Older site files remain in git history for rollback. The new `index.html` does not load their styles or scripts.
 
@@ -40,7 +50,7 @@ The 2025 resume describes Capgemini as present at that time; the website uses th
 
 Before promoting a preview:
 1. Verify desktop at 1280, 1440 and 1920 pixels, including portrait and long-title layouts.
-2. Test workstream filter counts and expandable details.
+2. Test workstream filters, keyword search (including no-match state) and expandable details.
 3. Test expertise tabs by mouse and arrow keys.
 4. Test theme, motion, command palette, navigation, and printable profile.
 5. Check keyboard focus, text contrast and reduced-motion behavior.
