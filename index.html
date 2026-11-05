@@ -125,6 +125,8 @@
     @media(prefers-reduced-motion:reduce){.tool-tile,.skill-card,.work-card{transition:none!important}.tool-tile:hover,.skill-card:hover,.work-card:hover{transform:none!important}}
     @media print{.tool-controls,.tool-bottom,.tool-empty,.tool-principle{display:none!important}.tool-browser{display:block}.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.tool-tile[hidden]{display:flex!important}.tool-detail{display:none!important}.tool-section:before{display:none}}
 </style>
+<link rel="stylesheet" href="experience-lab.css"/>
+<script defer src="experience-lab.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -136,8 +138,10 @@
 <span class="brand-mark">D<span style="opacity:.6">.</span></span>
 <span><span class="brand-title">DIVINKUMAR S.</span><span class="brand-sub">PV Systems Specialist</span></span>
 </a>
-<div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#expertise">Expertise</a><a href="#toolkit">Tools</a><a href="#work">Workstreams</a><a href="#contact">Contact</a></div>
+<div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#expertise">Expertise</a><a href="#toolkit">Tools</a><a href="#work">Workstreams</a><a href="#lab">Workflow lab</a><a href="#contact">Contact</a></div>
 <div class="nav-actions">
+<button class="quick-command" id="quickOpen" type="button" aria-haspopup="dialog" aria-controls="commandPalette" title="Quick navigation (Ctrl or Command + K)"><span>Quick jump</span><kbd>⌘ K</kbd></button>
+<button class="motion-toggle" id="motionToggle" type="button" aria-label="Reduce animations" aria-pressed="false" title="Reduce animations"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2m4-7 1.5-2M18 7l2-1M11 20l-1-2m9 0-2-2"/><circle cx="12" cy="12" r="5"/><path d="M8 12a4 4 0 0 0 4 4"/></svg></button>
 <button aria-label="Switch to light theme" class="icon-btn" id="themeToggle" title="Toggle theme">
 <svg fill="none" id="themeIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M20.5 15A9 9 0 0 1 9 3.5 9 9 0 1 0 20.5 15Z"></path></svg>
 </button>
@@ -152,10 +156,12 @@
 <section aria-labelledby="hero-title" class="hero" id="home">
 <div class="container hero-grid">
 <div class="hero-content">
+<div class="hero-kicker">Portfolio / 2026 · PV systems &amp; operations</div>
 <div class="availability"><i aria-hidden="true"></i> Techno-functional PV application support</div>
 <h1 class="display" id="hero-title"><span class="thin">Hi, I'm</span><br/>Divinkumar<span class="accent">.</span><span class="role">I keep <span class="accent">critical<br/>PV systems</span> moving.</span></h1>
 <p class="hero-desc">A <b>Pharmacovigilance Systems Analyst</b> supporting regulated application operations through service requests, incident investigation, user-access administration, workflow support, and controlled change delivery. I connect technical troubleshooting with clear documentation and dependable follow-through.</p>
 <div class="btn-row"><a class="btn btn-primary" href="#work">Explore my work <span aria-hidden="true" class="arrow">↗</span></a><a class="btn btn-outline" href="mailto:divinkumar67@gmail.com?subject=Let's%20connect%20about%20PV%20systems">Get in touch <span aria-hidden="true" class="arrow">↗</span></a></div>
+<div class="hero-quickbar"><button class="copy-intro" id="copyIntro" type="button" aria-label="Copy a short professional introduction">⧉ Copy professional intro</button><span>Human-led support. Evidence-led decisions.</span></div>
 <div class="hero-meta">
 <div><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1116 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span>Erode, Tamil Nadu, India</span></div>
 <div><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="7"></rect><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"></path></svg><span>InfoBeans <span aria-hidden="true">•</span> IQVIA engagement</span></div>
@@ -176,6 +182,11 @@
 <div class="about-features"><div class="feature"><span aria-hidden="true" class="icon">⌘</span><h3>Techno-functional thinking</h3><p>Root-cause investigation grounded in PV workflows.</p></div><div class="feature"><span aria-hidden="true" class="icon">◇</span><h3>Regulated environments</h3><p>GxP documentation, validation, and change control.</p></div><div class="feature"><span aria-hidden="true" class="icon">↗</span><h3>Operational ownership</h3><p>Incidents, requests, releases, and system health.</p></div><div class="feature"><span aria-hidden="true" class="icon">◎</span><h3>Collaborative delivery</h3><p>Working with QA, business, vendors, and IT teams.</p></div></div>
 </div>
 </div></section>
+<aside class="principles" aria-label="Professional working principles"><div class="container principles-grid">
+<div class="principle"><span class="principle-num">01 /</span><div><h3>Investigate with evidence</h3><p>Understand the symptom, validate assumptions and keep the resolution traceable.</p></div></div>
+<div class="principle"><span class="principle-num">02 /</span><div><h3>Protect controlled workflows</h3><p>Bring technical depth without bypassing process, approvals or quality checks.</p></div></div>
+<div class="principle"><span class="principle-num">03 /</span><div><h3>Close the coordination gap</h3><p>Make ownership, dependencies and next actions clear across business and IT teams.</p></div></div>
+</div></aside>
 <section aria-labelledby="experience-heading" class="section" id="experience"><div class="container">
 <div class="section-head reveal"><div><div class="eyebrow">02 / Journey</div><h2 class="display" id="experience-heading">Professional <span class="accent">experience.</span></h2></div><p class="intro">Supporting global drug safety platforms with technical problem-solving and compliance-aware delivery.</p></div>
 <div class="experience-grid"><div class="year-label reveal">2022 <span class="accent">→</span> Today</div><div class="timeline">
@@ -283,12 +294,51 @@
 <article class="work-card reveal" data-category="data operations"><span class="work-number">WORKSTREAM / 06</span><span aria-hidden="true" class="work-icon">#</span><h3>Incident &amp; SQL-backed troubleshooting</h3><p>Combining issue triage, SQL and PL/SQL knowledge, documented investigation, and stakeholder follow-through to support application and data-related resolutions.</p><div class="work-bottom"><span>SQL · PL/SQL</span><span>Data</span></div></article>
 </div>
 </div></section>
+<section aria-labelledby="lab-heading" class="section lab-section" id="lab"><div class="container">
+<div class="section-head reveal"><div><div class="eyebrow">06 / Interactive approach</div><h2 class="display" id="lab-heading">Behind the <span class="accent">workflow.</span></h2></div><p class="intro">Explore how I approach common PV support scenarios. This is an illustrative framework, not a record of specific client cases.</p></div>
+<div class="lab-frame reveal">
+<div class="lab-header"><span class="lab-indicator">Support thinking / interactive explorer</span><span class="lab-notice">01 → 04 · Select a workflow and a step</span></div>
+<div class="lab-tabs" role="tablist" aria-label="Support workflow examples">
+<button class="lab-tab" id="labTabIncident" role="tab" aria-controls="labMainPanel" aria-selected="true" data-lab-tab="incident" type="button">Incident investigation</button>
+<button class="lab-tab" id="labTabAccess" role="tab" aria-controls="labMainPanel" aria-selected="false" data-lab-tab="access" type="button" tabindex="-1">User access &amp; roles</button>
+<button class="lab-tab" id="labTabReconciliation" role="tab" aria-controls="labMainPanel" aria-selected="false" data-lab-tab="reconciliation" type="button" tabindex="-1">Reconciliation</button>
+<button class="lab-tab" id="labTabChange" role="tab" aria-controls="labMainPanel" aria-selected="false" data-lab-tab="change" type="button" tabindex="-1">Testing &amp; change</button>
+</div>
+<div class="lab-body" role="tabpanel" id="labMainPanel" aria-labelledby="labTabIncident" tabindex="0">
+<div class="lab-story" id="labStory" aria-live="polite" aria-atomic="true">
+<span class="lab-phase" id="labPhase">01 / 04 · Incident investigation</span>
+<h3 id="labTitle">Understand the signal</h3>
+<p id="labDescription">Gather the reported symptom, business impact and known context without assuming a root cause.</p>
+<div class="lab-outcome" id="labOutcome">Outcome: evidence-backed investigation notes and a clear next action, reviewed by the support analyst.</div>
+</div><div class="lab-steps" id="labSteps" aria-label="Steps in the selected workflow">
+<button class="lab-step" type="button" aria-current="step"><span class="lab-step-index">01</span><span>Understand the signal</span></button>
+</div>
+</div>
+<div class="lab-footer"><span class="lab-footnote">Illustrative method only. No patient information, case records, ticket details, private documentation or internal system data is presented.</span><button class="lab-copy" id="copyWorkflow" type="button">Copy workflow summary ↗</button></div>
+</div>
+</div></section>
 <section aria-labelledby="education-heading" class="section" id="education"><div class="container">
-<div class="section-head reveal"><div><div class="eyebrow">06 / Foundation</div><h2 class="display" id="education-heading">Education &amp; <span class="accent">mindset.</span></h2></div></div>
+<div class="section-head reveal"><div><div class="eyebrow">07 / Foundation</div><h2 class="display" id="education-heading">Education &amp; <span class="accent">mindset.</span></h2></div></div>
 <div class="edu-layout"><article class="edu-card reveal"><div class="eyebrow">Academic foundation</div><h3 class="degree">Bachelor of Engineering<br/>Biomedical Engineering</h3><p class="school">Velalar College of Engineering and Technology<br/>Erode, Tamil Nadu, India</p><span class="year">Graduated 2022</span></article><aside class="edu-side reveal"><div class="eyebrow">What drives my work</div><div class="big-quote">“Reliable systems are built one thoughtful decision at a time.”</div><p>Curiosity for technology. Respect for regulated processes. Ownership of the details that keep PV operations running.</p></aside></div>
 </div></section>
-<section aria-labelledby="contact-heading" class="contact-section" id="contact"><div class="container"><div class="contact-box reveal"><div><div class="eyebrow">07 / Let's connect</div><h2 class="display" id="contact-heading">Have a PV systems<br/><span class="accent">conversation in mind?</span></h2><p>Happy to connect about pharmacovigilance technology, enterprise application support, and opportunities to solve meaningful problems.</p></div><div class="contact-actions"><a class="btn btn-primary" href="mailto:divinkumar67@gmail.com?subject=Hello%20Divinkumar">Send an email <span class="arrow">↗</span></a><button class="btn btn-outline" id="copyEmail" type="button">Copy email <span aria-hidden="true">⧉</span></button></div></div><footer class="footer"><div><span class="name">Divinkumar Sundaramoorthi</span> <span aria-hidden="true"> · </span> © <span id="copyrightYear">2026</span></div><div>Built around clarity, reliability &amp; impact.</div><div class="footer-links"><a href="mailto:divinkumar67@gmail.com">Email</a><a href="tel:+919688825747">Phone</a><a href="#home">Back to top ↑</a></div></footer></div></section>
+<section aria-labelledby="contact-heading" class="contact-section" id="contact"><div class="container"><div class="contact-box reveal"><div><div class="eyebrow">08 / Let's connect</div><h2 class="display" id="contact-heading">Have a PV systems<br/><span class="accent">conversation in mind?</span></h2><p>Happy to connect about pharmacovigilance technology, enterprise application support, and opportunities to solve meaningful problems.</p></div><div class="contact-actions"><a class="btn btn-primary" href="mailto:divinkumar67@gmail.com?subject=Hello%20Divinkumar">Send an email <span class="arrow">↗</span></a><button class="btn btn-outline" id="copyEmail" type="button">Copy email <span aria-hidden="true">⧉</span></button></div></div><footer class="footer"><div><span class="name">Divinkumar Sundaramoorthi</span> <span aria-hidden="true"> · </span> © <span id="copyrightYear">2026</span></div><div>Built around clarity, reliability &amp; impact.</div><div class="footer-links"><a href="mailto:divinkumar67@gmail.com">Email</a><a href="tel:+919688825747">Phone</a><a href="#home">Back to top ↑</a></div></footer></div></section>
 </main>
+<div class="reading-dock" id="readingDock" aria-label="Current section navigation"><span class="reading-label" id="readingLabel">Introduction</span><button type="button" id="backToTop" aria-label="Back to top" title="Back to top">↑</button></div>
+<dialog class="command-palette" id="commandPalette" aria-label="Quick navigation">
+<div class="cmd-head"><span aria-hidden="true">⌕</span><input id="commandSearch" aria-label="Search portfolio sections" placeholder="Jump to a section…" type="search" autocomplete="off"/><button class="cmd-dismiss" id="commandClose" type="button" aria-label="Close quick navigation">Esc</button></div>
+<div class="cmd-list" id="commandList">
+<button class="cmd-item" type="button" data-command-target="#home"><span>Introduction</span><span>Home</span></button>
+<button class="cmd-item" type="button" data-command-target="#about"><span>About</span><span>Profile</span></button>
+<button class="cmd-item" type="button" data-command-target="#experience"><span>Experience</span><span>Career</span></button>
+<button class="cmd-item" type="button" data-command-target="#expertise"><span>Expertise</span><span>Capabilities</span></button>
+<button class="cmd-item" type="button" data-command-target="#toolkit"><span>Tool explorer</span><span>Searchable</span></button>
+<button class="cmd-item" type="button" data-command-target="#work"><span>Workstreams</span><span>Project work</span></button>
+<button class="cmd-item" type="button" data-command-target="#lab"><span>Workflow lab</span><span>Interactive</span></button>
+<button class="cmd-item" type="button" data-command-target="#education"><span>Education</span><span>Foundation</span></button>
+<button class="cmd-item" type="button" data-command-target="#contact"><span>Contact</span><span>Let's connect</span></button>
+<p class="cmd-empty" id="commandEmpty" hidden>No matching section. Try a shorter search.</p></div>
+<div class="cmd-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span><span><kbd>Enter</kbd> to open</span><span><kbd>Esc</kbd> to close</span></div>
+</dialog>
 
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
 <script>
@@ -310,7 +360,7 @@
       menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')});
       navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
       document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeMenu()});
-      const filters=[...document.querySelectorAll('[data-filter]')],workCards=[...document.querySelectorAll('[data-category]')],workCount=document.querySelector('#workCount');
+      const filters=[...document.querySelectorAll('[data-filter]')],workCards=[...document.querySelectorAll('.work-card[data-category]')],workCount=document.querySelector('#workCount');
       filters.forEach(btn=>btn.addEventListener('click',()=>{
         const active=btn.dataset.filter;
         filters.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
