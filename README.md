@@ -18,7 +18,7 @@ The new site prioritizes:
 
 ## Latest refinement
 
-- Removed Power BI from the public skills section at the user's request.
+- Removed a skill listing the user no longer wants represented in the public portfolio.
 - Added instant keyword search across representative work areas, combining with existing category filters.
 - Added contextual links from interactive platform expertise to the most relevant workstream category.
 - Refined desktop spacing, hierarchy, portrait framing, card surfaces and hover feedback.
