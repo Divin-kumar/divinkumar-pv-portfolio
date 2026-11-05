@@ -126,7 +126,10 @@
     @media print{.tool-controls,.tool-bottom,.tool-empty,.tool-principle{display:none!important}.tool-browser{display:block}.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.tool-tile[hidden]{display:flex!important}.tool-detail{display:none!important}.tool-section:before{display:none}}
 </style>
 <link rel="stylesheet" href="experience-lab.css"/>
+<link rel="stylesheet" href="desktop-studio.css"/>
+<style>@media(max-width:1099px){.desktop-only{display:none!important}}</style>
 <script defer src="experience-lab.js"></script>
+<script defer src="desktop-studio.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -152,6 +155,17 @@
 </div>
 </nav>
 </header>
+<nav class="desktop-only studio-rail" id="studioRail" aria-label="Desktop portfolio sections">
+<a class="studio-rail-link" href="#home" aria-label="Introduction" data-label="Introduction" aria-current="location">⌂</a>
+<a class="studio-rail-link" href="#about" aria-label="About" data-label="About">01</a>
+<a class="studio-rail-link" href="#experience" aria-label="Experience" data-label="Experience">02</a>
+<a class="studio-rail-link" href="#expertise" aria-label="Expertise" data-label="Expertise">03</a>
+<a class="studio-rail-link" href="#toolkit" aria-label="Tools" data-label="Toolkit">04</a>
+<a class="studio-rail-link" href="#work" aria-label="Workstreams" data-label="Workstreams">05</a>
+<a class="studio-rail-link" href="#lab" aria-label="Workflow lab" data-label="Workflow lab">06</a>
+<a class="studio-rail-link" href="#education" aria-label="Education" data-label="Education">07</a>
+<a class="studio-rail-link" href="#contact" aria-label="Contact" data-label="Contact">↗</a>
+</nav>
 <main id="main">
 <section aria-labelledby="hero-title" class="hero" id="home">
 <div class="container hero-grid">
@@ -160,6 +174,18 @@
 <div class="availability"><i aria-hidden="true"></i> Techno-functional PV application support</div>
 <h1 class="display" id="hero-title"><span class="thin">Hi, I'm</span><br/>Divinkumar<span class="accent">.</span><span class="role">I keep <span class="accent">critical<br/>PV systems</span> moving.</span></h1>
 <p class="hero-desc">A <b>Pharmacovigilance Systems Analyst</b> supporting regulated application operations through service requests, incident investigation, user-access administration, workflow support, and controlled change delivery. I connect technical troubleshooting with clear documentation and dependable follow-through.</p>
+<div class="desktop-only studio-focus" id="studioFocus" aria-label="Explore areas of expertise">
+<div class="studio-focus-top"><span>THE WORK, THROUGH THREE LENSES</span><span class="studio-focus-count" id="studioFocusCount">01 / 03</span></div>
+<div class="studio-focus-tabs" role="tablist" aria-label="Explore my professional focus">
+<button class="studio-focus-tab" id="studioTabOperations" type="button" role="tab" aria-controls="studioFocusPanel" aria-selected="true" data-focus="operations">PV operations</button>
+<button class="studio-focus-tab" id="studioTabInvestigation" type="button" role="tab" aria-controls="studioFocusPanel" aria-selected="false" tabindex="-1" data-focus="investigation">Investigation</button>
+<button class="studio-focus-tab" id="studioTabQuality" type="button" role="tab" aria-controls="studioFocusPanel" aria-selected="false" tabindex="-1" data-focus="quality">Quality &amp; change</button>
+</div>
+<div class="studio-focus-body" id="studioFocusPanel" role="tabpanel" aria-labelledby="studioTabOperations">
+<div><h2 id="studioFocusTitle">Keep PV operations moving.</h2>
+<p id="studioFocusCopy">Service requests, access support, workflow administration and clear ownership across the support lifecycle.</p></div>
+<a class="studio-focus-link" id="studioFocusLink" href="#work" aria-label="Explore operations work">↗</a>
+</div></div>
 <div class="btn-row"><a class="btn btn-primary" href="#work">Explore my work <span aria-hidden="true" class="arrow">↗</span></a><a class="btn btn-outline" href="mailto:divinkumar67@gmail.com?subject=Let's%20connect%20about%20PV%20systems">Get in touch <span aria-hidden="true" class="arrow">↗</span></a></div>
 <div class="hero-quickbar"><button class="copy-intro" id="copyIntro" type="button" aria-label="Copy a short professional introduction">⧉ Copy professional intro</button><span>Human-led support. Evidence-led decisions.</span></div>
 <div class="hero-meta">
@@ -284,6 +310,11 @@
 </section>
 <section aria-labelledby="work-heading" class="section" id="work"><div class="container">
 <div class="section-head reveal"><div><div class="eyebrow">05 / Experience in action</div><h2 class="display" id="work-heading">Work, <span class="accent">in practice.</span></h2></div><p class="intro">Six representative areas of application-support experience, not separate client projects. No ticket-level, patient, or client-sensitive information is included.</p></div>
+<div class="desktop-only studio-wayfinder" aria-label="Explore work by discipline">
+<button class="studio-discipline" type="button" data-studio-filter="platforms" aria-pressed="false"><span><span class="studio-discipline-index">01 / PLATFORM</span><strong>PV systems</strong><small>Applications, reporting &amp; workflows</small></span><span aria-hidden="true" class="studio-discipline-arrow">↗</span></button>
+<button class="studio-discipline" type="button" data-studio-filter="operations" aria-pressed="false"><span><span class="studio-discipline-index">02 / OPERATIONS</span><strong>Service operations</strong><small>Access, coordination &amp; support</small></span><span aria-hidden="true" class="studio-discipline-arrow">↗</span></button>
+<button class="studio-discipline" type="button" data-studio-filter="validation" aria-pressed="false"><span><span class="studio-discipline-index">03 / QUALITY</span><strong>Validation</strong><small>Testing, evidence &amp; controlled change</small></span><span aria-hidden="true" class="studio-discipline-arrow">↗</span></button>
+</div>
 <div class="work-bar reveal"><div aria-label="Filter selected work" class="filters" role="group"><button aria-pressed="true" class="filter" data-filter="all">All work</button><button aria-pressed="false" class="filter" data-filter="platforms">PV systems</button><button aria-pressed="false" class="filter" data-filter="validation">Validation</button><button aria-pressed="false" class="filter" data-filter="operations">Operations</button><button aria-pressed="false" class="filter" data-filter="data">Data</button></div><div aria-live="polite" class="work-note" id="workCount">06 workstreams</div></div>
 <div class="work-grid">
 <article class="work-card reveal" data-category="platforms operations"><span class="work-number">WORKSTREAM / 01</span><span aria-hidden="true" class="work-icon">↗</span><h3>ICSR &amp; E2B transmission monitoring</h3><p>Supporting safety report transmissions and acknowledgment tracking through Oracle Argus Safety and Axway, including regulatory destination and connection troubleshooting.</p><div class="work-bottom"><span>Argus · Axway · E2B</span><span>PV Systems</span></div></article>

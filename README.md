@@ -19,6 +19,20 @@ The experience includes:
 
 There is no external analytics service, project backend or private data source used by the interactive features. All workflow examples are generalized and read-only.
 
+## Desktop Studio refinement (November 2026)
+
+The desktop-only layer lives in [desktop-studio.css](./desktop-studio.css) and [desktop-studio.js](./desktop-studio.js). It is enabled at viewport widths of **1100px or more** and intentionally leaves the existing phone layout unchanged.
+
+- Editorial hero composition with richer typography, subtle portrait depth and more deliberate spacing
+- Three interactive professional focus lenses: PV operations, investigation, and quality/change
+- Section navigation rail on wide desktop screens, with active-section feedback and accessible labels
+- Discipline shortcuts that apply the existing workstream filters
+- A more curated two-column workstream gallery with responsive pointer spotlight and expandable descriptions
+- Larger career timeline and expertise presentation, plus a desktop workflow explorer with side navigation
+- Motion respects both the on-page motion toggle and the operating-system reduced-motion setting
+
+The enhancement remains static and read-only. No client data, case records, ticket exports, user tracking, or proprietary operational examples are added. Existing themes, search, PDF printing and mobile interactions are preserved.
+
 ## Professional focus
 
 - Enterprise PV application support and IT service management
