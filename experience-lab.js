@@ -98,8 +98,19 @@
     if (event.key === 'Enter') {
       const first = commands.find(item => !item.hidden);
       if (first) { event.preventDefault(); jumpTo(first.dataset.commandTarget); }
+    } else if (event.key === 'ArrowDown') {
+      const first = commands.find(item => !item.hidden);
+      if (first) { event.preventDefault(); first.focus(); }
     }
   });
+  commands.forEach(button => button.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+    event.preventDefault();
+    const visible = commands.filter(item => !item.hidden);
+    const index = visible.indexOf(button);
+    if (index < 0 || !visible.length) return;
+    visible[(index + (event.key === 'ArrowDown' ? 1 : -1) + visible.length) % visible.length].focus();
+  }));
   palette?.addEventListener('click', event => { if (event.target === palette) closePalette(); });
   document.addEventListener('keydown', event => {
     const editable = event.target instanceof HTMLElement &&
@@ -134,7 +145,10 @@
       else link.removeAttribute('aria-current');
     });
     if (readingLabel) readingLabel.textContent = names[active.id] || 'Portfolio';
-    readingDock?.classList.toggle('is-visible', window.scrollY > 520);
+    const dockVisible = window.scrollY > 520;
+    readingDock?.classList.toggle('is-visible', dockVisible);
+    readingDock?.setAttribute('aria-hidden', String(!dockVisible));
+    $('#backToTop')?.setAttribute('tabindex', dockVisible ? '0' : '-1');
   }
   window.addEventListener('scroll', () => {
     if (!ticking) { ticking = true; requestAnimationFrame(updateReading); }
@@ -246,6 +260,7 @@
       const chosen = tab.dataset.labTab === id;
       tab.setAttribute('aria-selected',String(chosen));
       tab.tabIndex = chosen ? 0 : -1;
+      if (chosen) $('#labMainPanel')?.setAttribute('aria-labelledby', tab.id);
     });
     labSteps.replaceChildren();
     workflows[id].steps.forEach((entry,i) => {
