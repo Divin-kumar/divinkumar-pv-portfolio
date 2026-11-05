@@ -130,6 +130,7 @@ body::before {content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;o
 .cmd-item{width:100%;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:15px;color:var(--text);padding:15px 16px;text-align:left;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer}
 .cmd-item span:last-child{font-size:11px;font-weight:500;color:var(--subtle)}
 .cmd-item:hover,.cmd-item:focus-visible{background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.cmd-item[hidden]{display:none!important}
 .cmd-empty{display:none;text-align:center;color:var(--muted);padding:24px}
 .cmd-empty:not([hidden]){display:block}
 .cmd-footer{display:flex;gap:14px;padding:13px 18px;border-top:1px solid var(--line);color:var(--subtle);font-size:11px}
@@ -157,6 +158,7 @@ html[data-motion=off] .reveal{opacity:1!important;transform:none!important}
 }
 /* Breakpoints */
 @media(max-width:1080px){
+  .nav-links{gap:16px}.nav-links a{font-size:12px}
   .quick-command span{display:none}.quick-command{height:43px}.quick-command kbd{font-size:11px}
   .hero-grid{gap:45px}.hero h1{font-size:clamp(48px,6.1vw,75px)}
   .principle{padding:23px 20px}
@@ -186,9 +188,19 @@ html[data-motion=off] .reveal{opacity:1!important;transform:none!important}
   .lab-footer{padding:18px 20px}
   .reading-dock{right:13px;bottom:15px}
   .reading-label{display:none}
-  .quick-command{display:none}
-  .motion-toggle{width:40px;height:40px}
-  .site-header .nav-resume{display:none}
+  .site-header .container{width:calc(100% - 24px)}
+  .nav{gap:8px}
+  .brand>span:last-child{display:none}
+  .nav-actions{gap:5px}
+  .quick-command{width:40px;height:40px;padding:0;display:grid;place-items:center}
+  .quick-command span,.quick-command kbd{display:none}
+  .quick-command::before{content:"⌕";font-size:25px;line-height:1;font-weight:500}
+  .motion-toggle,.site-header .icon-btn{width:40px;height:40px;flex:none}
+  .site-header .nav-resume{width:42px;height:40px;min-height:40px;padding:0;display:grid;place-items:center;font-size:0;line-height:1;flex:none}
+  .site-header .nav-resume::before{content:"PDF";font-size:10px;font-weight:900;letter-spacing:0}
+  .site-header .nav-resume span{display:none}
+  .brand-mark{height:40px;width:40px}
+  .reading-dock{right:13px;bottom:15px}
 }
 @media(max-width:410px){
   .hero h1{font-size:43px}
